@@ -1,0 +1,37 @@
+<h2>{{titre}}</h2>
+
+
+<p *ngIf="display">{{square(2)}}</p>
+
+<br />
+
+<input [type]="date" />
+
+<br />
+
+<div id="validationBtn"
+     [style.backgroundColor]="color"
+     (mouseenter)="changeColor('blue')"
+     (mouseleave)="changeColor('yellow')"
+     (click)="changeColor('green')"></div>
+
+<input type="text" [(ngModel)]="content" />
+
+<button (click)="display=!display">Masquer</button>
+
+<p>{{ content }}</p>
+
+<input type="text" [(ngModel)]="customizedColor" />
+<div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  backgroundColor: customizedColor
+}"></div>
+
+<div [ngStyle]="myDivStyles" [ngClass]="{
+  isHidden: display
+}"></div>
+
+<ul>
+  <li *ngFor="let user of users; let i = index; trackBy: trackById">{{i + 1}} - {{user.nom}}</li>
+</ul>
